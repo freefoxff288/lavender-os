@@ -13,6 +13,9 @@ if curl -sSL --max-time 40 -o /dev/null "$NEW/x86_64-repodata"; then
 else
   echo "GitHub не открывается — напиши об этом. Установщик не запускаю."; exit 1
 fi
+# перенести сетевые настройки live (свой шлюз/DNS) в установленную систему
+grep -q system-connections /opt/lavender-os/install.sh ||
+  sed -i 's|^cp /etc/resolv.conf "$T/etc/"$|&\nmkdir -p "$T/etc/NetworkManager/system-connections"; cp -a /etc/NetworkManager/system-connections/. "$T/etc/NetworkManager/system-connections/" 2>/dev/null \|\| true|' /opt/lavender-os/install.sh
 grep -q "$NEW" /opt/lavender-os/install.sh || { echo "Не удалось поправить install.sh"; exit 1; }
 echo "Запускаю установщик (через 3 секунды)..."
 sleep 3

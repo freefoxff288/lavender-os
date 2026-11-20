@@ -296,6 +296,11 @@ E
 
 for d in dev proc sys run; do mount --rbind "/$d" "$T/$d"; mount --make-rslave "$T/$d"; done
 cp /etc/resolv.conf "$T/etc/"
+# сетевые настройки из live (например, свой шлюз/DNS, заданные вручную) — в новую систему
+if [ -d /etc/NetworkManager/system-connections ]; then
+  mkdir -p "$T/etc/NetworkManager/system-connections"
+  cp -a /etc/NetworkManager/system-connections/. "$T/etc/NetworkManager/system-connections/" 2>/dev/null || true
+fi
 chroot "$T" /bin/sh -eu <<E
 xbps-reconfigure -f glibc-locales
 useradd -m -s /bin/zsh -G wheel,audio,video,input,network,bluetooth "$USERN"
