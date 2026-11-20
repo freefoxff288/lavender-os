@@ -16,8 +16,9 @@ exec 3>&1   # fd 3 — экран/графический установщик; �
 HERE=$(cd "$(dirname "$0")" && pwd)
 T=/mnt/lavender
 REPO=https://repo-default.voidlinux.org/current
-# noctalia, adw-gtk-theme. Прямой адрес SourceForge: зеркало на pages.dev (Cloudflare) бывает заблокировано
-EXTRA_REPO=https://downloads.sourceforge.net/project/universalrepository/void
+# noctalia, adw-gtk-theme, bibata — копия на GitHub (релиз pkgs) с оригинальными подписями:
+# universalrepo.pages.dev и SourceForge бывают заблокированы
+EXTRA_REPO=https://github.com/freefoxff288/lavender-os/releases/download/pkgs
 LOG=/tmp/lavender-install.log
 STEPS=6; N=0
 
