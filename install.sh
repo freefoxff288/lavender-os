@@ -16,7 +16,8 @@ exec 3>&1   # fd 3 — экран/графический установщик; �
 HERE=$(cd "$(dirname "$0")" && pwd)
 T=/mnt/lavender
 REPO=https://repo-default.voidlinux.org/current
-EXTRA_REPO=https://universalrepo.pages.dev/void   # noctalia, adw-gtk-theme
+# noctalia, adw-gtk-theme. Прямой адрес SourceForge: зеркало на pages.dev (Cloudflare) бывает заблокировано
+EXTRA_REPO=https://downloads.sourceforge.net/project/universalrepository/void
 LOG=/tmp/lavender-install.log
 STEPS=6; N=0
 
@@ -47,6 +48,9 @@ live_disk() {
 [ -d /sys/firmware/efi ] || die "Компьютер загружен не в режиме UEFI. Перезагрузись и выбери флешку с пометкой UEFI."
 [ -n "${LAVENDER_AUTO:-}" ] || command -v whiptail >/dev/null || xbps-install -Sy newt >/dev/null || die "Нет whiptail (пакет newt)."
 curl -sI "$REPO/" >/dev/null 2>&1 || die "Нет интернета. Подключись к сети и попробуй снова."
+# до разметки: доступен ли репозиторий с noctalia (иначе установка упадёт уже после стирания диска)
+curl -sSL --max-time 40 -o /dev/null "$EXTRA_REPO/x86_64-repodata" 2>/dev/null ||
+  die "Не открывается репозиторий с noctalia ($EXTRA_REPO). Диски не тронуты. Проверь интернет или попробуй позже."
 
 # ---------- вопросы ----------
 # Без вопросов: LAVENDER_AUTO=файл с переменными
