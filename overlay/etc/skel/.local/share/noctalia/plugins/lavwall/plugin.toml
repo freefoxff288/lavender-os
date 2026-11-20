@@ -1,0 +1,13 @@
+# Кнопка в Control Center (Super+A): новые случайные обои из lavwall.
+id = "lavender/lavwall"
+name = "Случайные обои"
+version = "1.0.0"
+plugin_api = 43
+author = "lavender"
+license = "MIT"
+icon = "wallpaper"
+description = "Левый клик — новые минималистичные обои в цветах системы (lavwall random --apply), правый — окно генератора."
+
+[[shortcut]]
+id = "random"
+entry = "shortcut.luau"

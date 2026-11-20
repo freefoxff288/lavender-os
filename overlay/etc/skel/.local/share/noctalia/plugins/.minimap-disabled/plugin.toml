@@ -1,0 +1,13 @@
+# Мини-карта: колонки текущего рабочего стола niri в виде маленьких блоков.
+id = "lavender/minimap"
+name = "Мини-карта колонок"
+version = "1.0.0"
+plugin_api = 43
+author = "lavender"
+license = "MIT"
+icon = "layout-columns"
+description = "Колонки активного рабочего стола niri: ширина блока по ширине колонки, активное окно лиловое, клик — фокус."
+
+[[widget]]
+id = "map"
+entry = "map.luau"

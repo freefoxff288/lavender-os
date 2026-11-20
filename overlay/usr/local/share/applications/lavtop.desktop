@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Диспетчер задач
+GenericName=Процессы
+Comment=Процессы, нагрузка и память в терминале
+Exec=foot --app-id=lavtop --title=lavtop lavtop
+Icon=utilities-system-monitor
+Terminal=false
+Categories=System;Monitor;
+Keywords=top;task;процессы;диспетчер;

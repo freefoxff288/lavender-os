@@ -1,0 +1,16 @@
+# сборка: ISO, void-mklive, кэш пакетов, диски VM
+/build/
+# собранные бинарники
+apps/lavender-wallpaper/lavwall
+apps/lavender-wallpaper/lavshot
+apps/lavender-wallpaper/wall
+apps/lavender-wallpaper/wall.c
+apps/dropnotes/dropnotes
+apps/lavender-greeter/lavender-greeter
+installer/lavender-installer
+# резервные копии
+*.bak*
+# плагины neovim скачиваются сами при первом запуске (lazy.nvim)
+/overlay/etc/skel/.local/share/nvim/
+*.o
+__pycache__/

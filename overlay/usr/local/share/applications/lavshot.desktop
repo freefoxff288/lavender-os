@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Красивый скриншот
+GenericName=Скриншот
+Comment=Снимок области на фоне в цветах системы
+Exec=lavshot region
+Icon=applets-screenshooter
+Terminal=false
+Categories=Graphics;Utility;
+Keywords=screenshot;скриншот;снимок;
+StartupWMClass=lavshot

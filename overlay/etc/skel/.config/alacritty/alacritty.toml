@@ -1,0 +1,12 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
+
+[terminal.shell]
+program = "/bin/sh"
+args = ["-c", "command -v zsh >/dev/null && exec zsh || exec bash"]

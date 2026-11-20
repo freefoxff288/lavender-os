@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Обои
+GenericName=Генератор обоев
+Comment=Минималистичные обои в цветах системы
+Exec=lavwall
+Icon=preferences-desktop-wallpaper
+Terminal=false
+Categories=Graphics;Utility;
+Keywords=wallpaper;обои;фон;
+StartupWMClass=lavwall

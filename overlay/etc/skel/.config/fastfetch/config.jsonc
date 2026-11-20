@@ -1,0 +1,36 @@
+// fastfetch — Лаванда, минималистичный. Логотип — готовый sixel (chafa), 35×14 клеток (Fira Code 11: клетка 11×23 px).
+// Старые версии: config.jsonc.bak, config.jsonc.bak-box. Логотип: void-logo.png
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "raw",
+    "source": "~/.config/fastfetch/void-logo.sixel",
+    "width": 35,
+    "height": 14,
+    "padding": { "top": 1, "left": 0, "right": 2 }
+  },
+  "display": {
+    "separator": "  ",
+    "color": { "keys": "magenta", "output": "white" },
+    "key": { "width": 14 },
+    "size": { "binaryPrefix": "jedec", "ndigits": 1 },
+    "bar": { "char": { "elapsed": "━", "total": "━" }, "border": { "left": "", "right": "" }, "width": 5 },
+    "percent": { "type": 3, "color": { "green": "magenta", "yellow": "yellow", "red": "red" } }
+  },
+  "modules": [
+    { "type": "title", "format": "{#1;35}{user-name}{#0;90}@{#0;37}{host-name}" },
+    { "type": "custom", "format": "{#90}─────────────────────────────" },
+    { "type": "os",       "key": "󰌽  система",   "format": "{pretty-name}" },
+    { "type": "kernel",   "key": "󰘚  ядро",      "format": "{release}" },
+    { "type": "wm",       "key": "󱂬  окружение", "format": "{pretty-name} {version}" },
+    { "type": "packages", "key": "󰏖  пакеты",    "format": "{all}" },
+    { "type": "terminal", "key": "󰞷  терминал",  "format": "{pretty-name} {version}" },
+    { "type": "cpu",      "key": "󰻠  процессор", "format": "{name}" },
+    { "type": "gpu",      "key": "󰢮  видео",     "format": "{name}" },
+    { "type": "memory",   "key": "󰍛  память",    "format": "{used} / {total}  {percentage-bar}" },
+    { "type": "disk",     "key": "󰋊  диск",      "folders": "/", "format": "{size-used} / {size-total}  {size-percentage-bar}" },
+    { "type": "command",  "key": "󰁹  батарея",   "text": "for d in /sys/class/power_supply/BAT*; do [ -e $d ] || continue; c=$(cat $d/capacity); case $(cat $d/status) in Charging) s='заряжается';; Discharging) s='от батареи';; Full) s='полная';; *) s='от сети';; esac; echo \"$c% · $s\"; done" },
+    { "type": "uptime",   "key": "󰅐  работает",  "format": "{?days}{days} д {?}{?hours}{hours} ч {?}{minutes} мин" },
+    { "type": "colors", "symbol": "circle" }
+  ]
+}

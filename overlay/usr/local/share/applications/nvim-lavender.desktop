@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim
+GenericName=Редактор кода
+Comment=Редактировать файлы в neovim
+Exec=foot --app-id=nvim --title=nvim nvim %F
+Icon=nvim
+Terminal=false
+Categories=Utility;TextEditor;Development;IDE;
+Keywords=text;editor;code;vim;
+StartupWMClass=nvim
+MimeType=text/plain;text/markdown;text/x-markdown;text/x-python;text/x-python3;text/x-script.python;application/x-shellscript;text/x-shellscript;text/x-sh;text/x-csrc;text/x-chdr;text/x-c;text/x-c++src;text/x-c++hdr;text/x-c++;text/x-java;text/x-lua;text/x-rust;text/rust;text/x-go;text/javascript;application/javascript;application/x-javascript;text/x-typescript;application/typescript;text/css;text/x-scss;application/json;application/x-ndjson;application/xml;text/xml;application/toml;text/x-toml;application/yaml;application/x-yaml;text/x-yaml;text/x-makefile;text/x-cmake;text/x-log;text/x-readme;text/x-tex;text/csv;text/tab-separated-values;application/x-desktop;text/x-diff;text/x-patch;application/x-zerosize;application/sql;text/x-sql;text/x-ini;application/x-wine-extension-ini;text/x-gettext-translation;text/x-kdl;application/x-subrip;text/x-nfo;text/x-systemd-unit;inode/x-empty;

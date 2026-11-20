@@ -1,0 +1,24 @@
+#!/bin/bash
+# Prints a random Linux/programming joke; with --notify sends it as a notification.
+jokes=(
+  "It works on my machine. Ship the machine."
+  "There's no place like 127.0.0.1"
+  "sudo make me a sandwich"
+  "Segmentation fault (core dumped) — но это фича"
+  "rm -rf / — самый быстрый способ освободить место"
+  "Я выйду из vim. Когда-нибудь. :q!"
+  "99 little bugs in the code... patch one... 127 little bugs in the code"
+  "Меня не уволят, у меня git blame чистый"
+  "// TODO: потрогать траву"
+  "Year of the Linux desktop: $(date +%Y)"
+  "Void смотрит на тебя в ответ"
+  "Работает? Не трогай. Не работает? Перезагрузи."
+  "chmod 777 — это не решение, это крик о помощи"
+  "Real programmers count from 0"
+  "Ошибка между стулом и клавиатурой (PEBKAC)"
+  "runit: systemd, но ты понимаешь, что происходит"
+  "Компилирую... (ушёл пить чай на 3 часа) — привет, Gentoo"
+  "In case of fire: git commit, git push, leave building"
+)
+j=${jokes[RANDOM % ${#jokes[@]}]}
+if [ "$1" = --notify ]; then notify-send -a devjoke "  devjoke" "$j"; else echo "$j"; fi

@@ -1,0 +1,13 @@
+# Пилюля заголовка: три точки (закрыть · развернуть · открепить) и название активного окна niri.
+id = "lavender/pill"
+name = "Пилюля заголовка"
+version = "1.0.0"
+plugin_api = 53
+author = "lavender"
+license = "MIT"
+icon = "app-window"
+description = "Название активного окна niri и три точки. На время превращается в громкость, яркость или новый трек (остров)."
+
+[[widget]]
+id = "title"
+entry = "title.luau"

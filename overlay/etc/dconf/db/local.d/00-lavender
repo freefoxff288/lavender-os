@@ -1,0 +1,9 @@
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+cursor-size=22
+cursor-theme='Bibata-Modern-Classic'
+document-font-name='Inter 10'
+font-name='Inter 10'
+gtk-theme='adw-gtk3-dark'
+icon-theme='Papirus-Dark'
+monospace-font-name='Fira Code 10'

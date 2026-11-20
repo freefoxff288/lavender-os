@@ -1,0 +1,13 @@
+# Пустой рабочий стол: крупные часы, дата и текущий трек. Видно только когда на рабочем столе нет окон.
+id = "lavender/desk"
+name = "Пустой стол"
+version = "1.0.0"
+plugin_api = 53
+author = "lavender"
+license = "MIT"
+icon = "clock"
+description = "Крупные часы, дата и текущий трек по центру, когда на рабочем столе нет окон. Плавно появляется и исчезает."
+
+[[desktop_widget]]
+id = "desk"
+entry = "desk.luau"

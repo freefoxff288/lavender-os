@@ -1,0 +1,189 @@
+config_version = 20
+
+[audio]
+sound_theme = "void-glass"
+
+[bar.default]
+border = "primary"
+border_width = 0
+capsule = false
+capsule_group = [
+    { accordion = true, accordion_direction = "start", accordion_duration = 220, fill = "surface_container", id = "sys", members = [ "cpu", "ram", "visualizer" ] },
+    { accordion = true, accordion_direction = "start", accordion_duration = 220, fill = "surface_container", id = "quick", members = [ "battery", "volume", "brightness", "network", "bluetooth" ] },
+    { accordion = true, accordion_direction = "start", accordion_duration = 220, fill = "surface_container", id = "tools", members = [ "control-center", "screenshot", "session" ] }
+]
+capsule_padding = 4
+center = [ "clock" ]
+color = "primary"
+end = [ "media", "tray", "notifications", "keyboard_layout", "group:sys", "group:quick", "group:tools" ]
+icon_color = "primary"
+margin_edge = 6
+margin_ends = 16
+padding = 8
+start = [ "launcher", "workspaces", "pill" ]
+widget_spacing = 4
+
+[battery]
+warning_threshold = 15
+
+[control_center]
+shortcuts = [
+    { type = "wifi" },
+    { type = "bluetooth" },
+    { type = "lavender/lavwall:random" },
+    { type = "nightlight" },
+    { type = "notification" },
+    { type = "power_profile" }
+]
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+[location]
+latitude = 45.350000000000001
+longitude = 36.469999999999999
+
+[lockscreen]
+transition = [ "fade" ]
+transition_duration = 900.0
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 768.0
+    cy = 682.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[notification]
+border_color = "#bba7e366"
+colorize_icons = true
+width = 380
+
+[osd.kinds]
+brightness = false
+media = false
+media_volume = false
+volume = false
+
+[plugins]
+enabled = [ "lavender/pill", "lavender/lavwall" ]
+
+[shell]
+corner_radius_scale = 2.0
+lang = "ru"
+
+    [shell.launcher]
+    pinned = [ "foot", "firefox", "org.telegram.desktop", "thunar" ]
+
+    [shell.screen_corners]
+    size = 100
+
+[theme]
+builtin = "Noctalia"
+custom_palette = "Lavender"
+pure_black_dark = false
+source = "custom"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "btop", "cava", "gtk3", "gtk4", "niri", "qt" ]
+    community_ids = [ "thunar", "yazi", "pywalfox", "qutebrowser", "telegram", "steam", "claude-code" ]
+
+[wallpaper]
+enabled = true
+
+    [wallpaper.default]
+    path = "/usr/share/backgrounds/lavender/lavwall/silk-lavender-dark-397674.png"
+
+    [wallpaper.last]
+    path = "/usr/share/backgrounds/lavender/lavwall/silk-lavender-dark-397674.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/usr/share/backgrounds/lavender/lavwall/silk-lavender-dark-397674.png"
+
+[widget.clock]
+format = "{:%H:%M · %a %d %b}"
+
+[widget.cpu]
+stat = "cpu_usage"
+type = "sysmon"
+
+    [widget.cpu.actions]
+    left = "exec alacritty -e btop"
+
+[widget.devjoke]
+glyph = "bug"
+label = "it works on my machine"
+tooltip = "Клик — случайная шутка"
+type = "custom_button"
+
+    [widget.devjoke.actions]
+    left = "exec /usr/local/bin/devjoke --notify"
+
+[widget.launcher]
+glyph = "terminal-2"
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.pill]
+type = "lavender/pill:title"
+
+[widget.ram]
+stat = "ram_pct"
+type = "sysmon"
+
+    [widget.ram.actions]
+    left = "exec alacritty -e btop"
+
+[widget.screenshot]
+glyph = "camera"
+tooltip = "ЛКМ: область  ·  ПКМ: весь экран"
+type = "custom_button"
+
+    [widget.screenshot.actions]
+    left = "exec noctalia msg screenshot-region --annotate --save-to-file --copy-to-clipboard"
+    right = "exec noctalia msg screenshot-fullscreen --save-to-file --copy-to-clipboard"
+
+[widget.tray]
+drawer = true
+
+[widget.visualizer]
+type = "audio_visualizer"
+
+[widget.workspaces]
+empty_color = "#3a3545"
+occupied_color = "#8e7fb8"

@@ -1,0 +1,36 @@
+# Приложения по умолчанию (только свободные лицензии)
+foot
+python3
+Thunar
+thunar-volman
+tumbler
+gvfs
+file-roller
+7zip
+zip
+bsdtar
+firefox
+python3-adblock
+telegram-desktop
+imv
+zathura
+zathura-pdf-mupdf
+pavucontrol
+btop
+fastfetch
+yazi
+bat
+eza
+fzf
+zoxide
+chafa
+# редактор: neovim как IDE (плагины уже в /etc/skel, языковые серверы докачает Mason)
+neovim
+git
+fzf
+ripgrep
+fd
+nodejs
+gcc
+make
+unzip

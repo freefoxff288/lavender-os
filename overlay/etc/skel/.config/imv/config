@@ -1,0 +1,8 @@
+# Лаванда
+[options]
+background = 18161d
+overlay = false
+overlay_font = Inter:11
+overlay_text_color = e6e1ef
+overlay_background_color = 211e28
+overlay_background_alpha = e0

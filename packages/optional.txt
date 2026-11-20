@@ -1,0 +1,20 @@
+# Необязательное: установщик спросит, ставить ли
+# [media]
+obs
+ffmpeg6
+cava
+yt-dlp
+qbittorrent
+# [dev]
+base-devel
+clang
+clang-tools-extra
+cmake
+nodejs
+black
+python3-jedi
+# [fun]
+cbonsai
+tty-clock
+genact
+sl

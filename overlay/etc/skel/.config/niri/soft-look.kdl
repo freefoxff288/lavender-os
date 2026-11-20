@@ -1,0 +1,68 @@
+// Лаванда: мягкий вид окон. Подключается после noctalia.kdl и перекрывает её цвета.
+
+layout {
+    // тонкое полупрозрачное лиловое кольцо у активного окна
+    focus-ring {
+        width 1.5
+        active-color   "#bba7e3b0"
+        inactive-color "#00000000"
+        urgent-color   "#e3a7b5"
+    }
+    border { off; }
+
+    // тень: у активного окна мягкое лиловое свечение, у остальных обычная тёмная тень
+    shadow {
+        on
+        softness 40
+        spread 3
+        offset x=0 y=6
+        color          "#bba7e355"
+        inactive-color "#0000004d"
+    }
+
+    tab-indicator {
+        active-color   "#bba7e3"
+        inactive-color "#3a3545"
+        urgent-color   "#e3a7b5"
+        corner-radius 8
+        gap 6
+        width 4
+    }
+
+    insert-hint {
+        color "#bba7e340"
+    }
+}
+
+recent-windows {
+    highlight {
+        active-color "#bba7e3"
+        urgent-color "#e3a7b5"
+    }
+}
+
+// скругления 16px у всех окон
+window-rule {
+    geometry-corner-radius 16
+    clip-to-geometry true
+}
+
+// неактивные окна приглушены; видео, игры и плавающие окна всегда плотные
+window-rule {
+    match is-focused=false
+    exclude app-id=r#"^(mpv|imv|steam_app_.*|org\.tlauncher.*|Minecraft.*)$"#
+    exclude is-floating=true
+    opacity 0.86
+}
+
+// заметки (dropnotes): без размытия — на встроенной графике оно роняло анимацию до ~30 к/с
+
+// стикеры заметок — плавающие карточки в правом верхнем углу
+window-rule {
+    match app-id=r#"^local\.dropnotes$"# title="^Стикер"
+    open-floating true
+    open-focused false
+    default-column-width { fixed 270; }
+    default-floating-position x=24 y=24 relative-to="top-right"
+    opacity 0.96
+}
