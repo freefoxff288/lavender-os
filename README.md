@@ -16,8 +16,6 @@
 - `build-iso.sh` — собирает установочный ISO (void-mklive, нужен root)
 - `test-vm.sh`, `tools/` — проверка в виртуальной машине QEMU
 
-Не входят (проприетарные): Steam, TLauncher, Unity, Happ. Единственное исключение — драйвер NVIDIA, и только если выбрать его при установке.
-
 ## Свои программы
 Исходники в `apps/`, ставятся в `/usr/local/bin`, собирает их `build-overlay.sh`:
 - `dropnotes` — выпадающие заметки (Mod+N)
