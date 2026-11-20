@@ -471,6 +471,17 @@ static void update_nav(void) {
 
 static void render_checks(void);
 
+/* сеть по кабелю поднимается через несколько секунд после загрузки —
+   пока интернета нет, проверяем снова каждые 4 секунды */
+static guint online_timer;
+static void check_online(void);
+static gboolean online_retry(gpointer d) {
+    (void)d;
+    online_timer = 0;
+    if (!online && !installing) check_online();
+    return G_SOURCE_REMOVE;
+}
+
 static void online_done(GObject *o, GAsyncResult *r, gpointer d) {
     (void)d;
     GError *e = NULL;
@@ -479,6 +490,7 @@ static void online_done(GObject *o, GAsyncResult *r, gpointer d) {
     g_clear_error(&e);
     render_checks();
     update_nav();
+    if (!online && !online_timer) online_timer = g_timeout_add_seconds(4, online_retry, NULL);
 }
 
 static void check_online(void) {
@@ -577,7 +589,7 @@ static void render_checks(void) {
     gtk_box_append(GTK_BOX(w_checks), check_row(uefi, "Режим загрузки UEFI",
         uefi ? NULL : "Компьютер загрузился в устаревшем режиме (Legacy/CSM). Перезагрузись и в меню загрузки выбери флешку с пометкой «UEFI»."));
     gtk_box_append(GTK_BOX(w_checks), check_row(online, "Интернет",
-        online ? NULL : "Пакеты скачиваются из сети. Подключи кабель или выбери Wi-Fi ниже."));
+        online ? NULL : "Пакеты скачиваются из сети. Если кабель подключён — подожди несколько секунд, проверка повторяется сама. Или выбери Wi-Fi ниже."));
     int nwin = 0;
     for (guint i = 0; i < disks->len; i++) nwin += ((Disk *)disks->pdata[i])->has_win;
     if (nwin) gtk_box_append(GTK_BOX(w_checks), check_row(TRUE, "Найдена Windows",
