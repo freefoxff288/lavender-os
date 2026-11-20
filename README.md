@@ -41,8 +41,9 @@ sudo sh build-iso.sh
 ## Установка (инструкция)
 Требования: компьютер с UEFI, интернет (кабель или Wi-Fi), флешка от 4 ГБ.
 
-1. Собрать ISO: `sh build-overlay.sh`, затем `sudo sh build-iso.sh` → `build/lavender-os-ДАТА.iso`.
-2. Записать на флешку (sdX — флешка, проверь через `lsblk`!):
+1. Скачать готовый ISO из [Releases](https://github.com/freefoxff288/lavender-os/releases/latest)
+   (проверка: `sha256sum -c lavender-os-*.iso.sha256`) — или собрать самому: `sudo sh build-iso.sh` → `build/lavender-os-ДАТА.iso`.
+2. Записать на флешку (sdX — флешка, проверь через `lsblk`! В Windows — Rufus в режиме DD или balenaEtcher):
    `sudo dd if=build/lavender-os-*.iso of=/dev/sdX bs=4M status=progress oflag=sync`
 3. Загрузиться с флешки в режиме **UEFI** (меню загрузки — обычно F8/F11/F12/Esc).
 4. Сам откроется графический установщик: проверка UEFI и интернета (Wi-Fi можно подключить прямо в нём) →
